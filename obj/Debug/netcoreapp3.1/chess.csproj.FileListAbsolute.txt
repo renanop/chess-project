@@ -1,0 +1,13 @@
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess.deps.json
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess.runtimeconfig.json
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess.runtimeconfig.dev.json
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess.dll
+/home/renandev/dev/c#/chess/bin/Debug/netcoreapp3.1/chess.pdb
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.csprojAssemblyReference.cache
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.AssemblyInfoInputs.cache
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.AssemblyInfo.cs
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.csproj.CoreCompileInputs.cache
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.dll
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.pdb
+/home/renandev/dev/c#/chess/obj/Debug/netcoreapp3.1/chess.genruntimeconfig.cache
