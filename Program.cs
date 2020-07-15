@@ -8,6 +8,8 @@ namespace chess
         static void Main(string[] args)
         {
             System.Console.WriteLine("Hello World");
+
+            MyTable tab = new MyTable(8,8);
         }
     }
 }
