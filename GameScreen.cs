@@ -16,7 +16,7 @@ namespace chess
                     }
                     else
                     {
-                        System.Console.Write(tab.GetPiece(i, j) + " " );
+                        System.Console.Write(tab.GetPiece(i, j) + " ");
                     }
                 }
 

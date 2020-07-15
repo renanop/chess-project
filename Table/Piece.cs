@@ -7,9 +7,9 @@ namespace chess.Table
         public Color Color { get; protected set; }
         public int NumMovements { get; protected set; }
 
-        public Piece(Position position, MyTable table, Color color)
+        public Piece(MyTable table, Color color)
         {
-            Position = position;
+            Position = null;
             Table = table;
             Color = color;
             NumMovements = 0;
