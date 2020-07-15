@@ -12,5 +12,10 @@ namespace chess.Table
             Columns = columns;
             Pieces = new Piece[rows, columns];
         }
+
+        public Piece GetPiece(int row, int column)
+        {
+            return Pieces[row, column];
+        }
     }
 }
