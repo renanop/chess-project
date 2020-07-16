@@ -2,18 +2,18 @@ namespace chess.Table
 {
     public class Position
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
 
         public Position(int row, int column)
         {
-            Row = row;
-            Column = column;
+            Rows = row;
+            Columns = column;
         }
 
         public override string ToString()
         {
-            return "Row: " + Row + "\tColumn: " + Column;
+            return "Row: " + Rows + "\tColumn: " + Columns;
         }
     }
 }

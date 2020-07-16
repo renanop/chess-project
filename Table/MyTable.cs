@@ -6,21 +6,53 @@ namespace chess.Table
         public int Columns { get; set; }
         private Piece[,] Pieces { get; set; }
 
+        // Constructors:
         public MyTable(int rows, int columns)
         {
             Rows = rows;
             Columns = columns;
             Pieces = new Piece[rows, columns];
         }
-
+        // Methods
         public Piece GetPiece(int row, int column)
         {
             return Pieces[row, column];
         }
         public void AddPiece(Piece piece, Position position)
         {
-            Pieces[position.Row, position.Column] = piece;
+            if(existPiece(position))
+            {
+                throw new TableException("A piece already occupies that position!");
+            }
+            Pieces[position.Rows, position.Columns] = piece;
             piece.Position = position;
         }
+        public Piece GetPiece(Position position)
+        {
+            return Pieces[position.Rows, position.Columns];
+        }
+
+        public bool IsTruePosition(Position position)
+        {
+            if(position.Rows < 0 || position.Rows > Rows || position.Columns < 0 || position.Columns > Columns)
+            {
+                return false;
+            }
+            return true;
+        }
+        public void ValidPosition(Position position)
+        {
+            if (!IsTruePosition(position))
+            {
+                throw new TableException("Invalid Position: One of the values is either out of bounds or negative.");
+            }
+        }
+
+        public bool existPiece(Position position)
+        {
+            ValidPosition(position);
+            return GetPiece(position) != null;
+        }
+        
     }
 }
