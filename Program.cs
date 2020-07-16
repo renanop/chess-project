@@ -8,23 +8,10 @@ namespace chess
     {
         static void Main(string[] args)
         {
-            try
-            {
-                MyTable tab = new MyTable(8, 8);
-                tab.AddPiece(new Tower(tab, Color.Black), new Position(0, 0));
-                tab.AddPiece(new Tower(tab, Color.Black), new Position(1, 3));
-                tab.AddPiece(new King(tab, Color.Black), new Position(2, 4));
-
-                GameScreen.PrintChess(tab);
-
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.Message);
-            }
-
-
-
+            PositionChess pos = new PositionChess('c', 7);
+            System.Console.WriteLine(pos);
+            Position posInt = pos.ToPosition();
+            System.Console.WriteLine(posInt);
         }
     }
 }
