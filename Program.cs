@@ -1,6 +1,7 @@
 ﻿using System;
 using chess.Table;
 using chess.ChessGame;
+using chess;
 
 namespace chess
 {
@@ -8,10 +9,10 @@ namespace chess
     {
         static void Main(string[] args)
         {
-            PositionChess pos = new PositionChess('c', 7);
-            System.Console.WriteLine(pos);
-            Position posInt = pos.ToPosition();
-            System.Console.WriteLine(posInt);
+            MyTable tab = new MyTable(8,8);
+            tab.AddPiece(new Tower(tab, Color.White), new Position(0,0));
+            tab.AddPiece(new King(tab, Color.Green), new Position(7,7));
+            GameScreen.PrintChess(tab);
         }
     }
 }
