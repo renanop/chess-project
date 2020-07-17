@@ -14,5 +14,10 @@ namespace chess.Table
             Color = color;
             NumMovements = 0;
         }
+
+        public void IncrementNumMovements()
+        {
+            NumMovements++;
+        }
     }
 }

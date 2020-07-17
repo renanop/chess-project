@@ -18,23 +18,37 @@ namespace chess.Table
         {
             return Pieces[row, column];
         }
+
+        public Piece GetPiece(Position position)
+        {
+            return Pieces[position.Rows, position.Columns];
+        }
+
         public void AddPiece(Piece piece, Position position)
         {
-            if(existPiece(position))
+            if (existPiece(position))
             {
                 throw new TableException("A piece already occupies that position!");
             }
             Pieces[position.Rows, position.Columns] = piece;
             piece.Position = position;
         }
-        public Piece GetPiece(Position position)
+
+        public Piece RemovePiece(Position position)
         {
-            return Pieces[position.Rows, position.Columns];
+            if (GetPiece(position) == null)
+            {
+                return null;
+            }
+            Piece aux = GetPiece(position);
+            aux.Position = null;
+            Pieces[position.Rows, position.Columns] = null;
+            return aux;
         }
 
         public bool IsTruePosition(Position position)
         {
-            if(position.Rows < 0 || position.Rows > Rows || position.Columns < 0 || position.Columns > Columns)
+            if (position.Rows < 0 || position.Rows > Rows || position.Columns < 0 || position.Columns > Columns)
             {
                 return false;
             }
@@ -53,6 +67,5 @@ namespace chess.Table
             ValidPosition(position);
             return GetPiece(position) != null;
         }
-        
     }
 }
