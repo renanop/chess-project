@@ -7,8 +7,8 @@ namespace chess.ChessGame
     public class ChessMatch
     {
         public MyTable Tab { get; private set; }
-        private int Turn;
-        private Color CurrentPlayer;
+        public int Turn { get; private set; }
+        public Color CurrentPlayer {get; private set;}
         public bool IsMatchOver { get; private set; }
 
         public ChessMatch()
@@ -25,6 +25,49 @@ namespace chess.ChessGame
             p.IncrementNumMovements();
             Piece capturedPiece = Tab.RemovePiece(destination);
             Tab.AddPiece(p, destination);
+        }
+        public void ChangePlayer()
+        {
+            if(CurrentPlayer == Color.White)
+            {
+                CurrentPlayer = Color.Black;
+            }
+            else
+            {
+                CurrentPlayer = Color.White;
+            }
+        }
+
+        public void PlayMove(Position origin, Position destination)
+        {
+            MakeMove(origin, destination);
+            Turn++;
+            ChangePlayer();
+        }
+
+        public void ValidateOriginPosition(Position pos)
+        {
+            if (Tab.GetPiece(pos) == null)
+            {
+                throw new TableException("There is no piece on that position.");
+            }
+            if (Tab.GetPiece(pos).Color != CurrentPlayer)
+            {
+                throw new TableException("Chosen piece isn't owned by the current player.");
+            }
+            if(!Tab.GetPiece(pos).ExistPossibleMoves())
+            {
+                throw new TableException("There are no available moves for the chosen piece.");
+            }
+            
+        }
+
+        public void ValidateDestinationPosition(Position origin, Position destination)
+        {
+            if(!Tab.GetPiece(origin).CanMoveToPosition(destination))
+            {
+                throw new TableException("Destination unavailable.");
+            }
         }
 
         private void AddPieces()

@@ -20,6 +20,29 @@ namespace chess.Table
             NumMovements++;
         }
 
+        public bool ExistPossibleMoves()
+        {
+            bool[,] mat = PossibleMoves();
+            for (int i = 0; i < Table.Rows; i++)
+            {
+                for (int j = 0; j < Table.Columns; j++)
+                {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool CanMoveToPosition(Position pos)
+        {
+            return PossibleMoves()[pos.Rows, pos.Columns];
+        }
+
         public abstract bool[,] PossibleMoves();
+
+
     }
 }
