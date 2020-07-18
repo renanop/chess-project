@@ -15,5 +15,11 @@ namespace chess.Table
         {
             return "Row: " + Rows + "\tColumn: " + Columns;
         }
+
+        public void DefineValues(int row, int column)
+        {
+            Rows = row;
+            Columns = column;
+        }
     }
 }

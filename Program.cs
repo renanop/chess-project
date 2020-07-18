@@ -18,10 +18,18 @@ namespace chess
                     System.Console.WriteLine("----------- WELCOME TO THE CHESS MATCH!!--------------");
                     System.Console.WriteLine();
                     GameScreen.PrintChess(match.Tab);
+                    System.Console.WriteLine();
                     System.Console.Write("Origin: ");
                     Position origin = GameScreen.ReadPositionChess().ToPosition();
+
+                    bool[,] possiblePositions = match.Tab.GetPiece(origin).PossibleMoves();
+                    GameScreen.PrintChess(match.Tab, possiblePositions);
+
                     System.Console.Write("Destination: ");
                     Position destination = GameScreen.ReadPositionChess().ToPosition();
+                    GameScreen.PrintChess(match.Tab, possiblePositions);
+                    System.Console.Write("Destination: ");
+                    
 
                     match.MakeMove(origin, destination);
 
@@ -29,7 +37,7 @@ namespace chess
 
 
             }
-            catch (TableException t)
+            catch (Exception t)
             {
                 System.Console.WriteLine(t.Message);
             }

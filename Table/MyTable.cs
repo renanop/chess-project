@@ -48,7 +48,7 @@ namespace chess.Table
 
         public bool IsTruePosition(Position position)
         {
-            if (position.Rows < 0 || position.Rows > Rows || position.Columns < 0 || position.Columns > Columns)
+            if (position.Rows < 0 || position.Rows >= Rows || position.Columns < 0 || position.Columns >= Columns)
             {
                 return false;
             }

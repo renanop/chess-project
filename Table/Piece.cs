@@ -1,6 +1,6 @@
 namespace chess.Table
 {
-    public class Piece
+    public abstract class Piece
     {
         public Position Position { get; set; }
         public MyTable Table { get; protected set; }
@@ -19,5 +19,7 @@ namespace chess.Table
         {
             NumMovements++;
         }
+
+        public abstract bool[,] PossibleMoves();
     }
 }
